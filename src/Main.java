@@ -2,8 +2,10 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Main {
-
     public static void main(String[] args) {
-	// testy test test woohooo
+
+        Scanner sc = new Scanner(System.in);
+
+
     }
 }
