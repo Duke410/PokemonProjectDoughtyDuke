@@ -1,31 +1,16 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Game {
-/*
-Game Class
-Stage (enum) (with Bag, Battle, Attacks, Pokemon)
-Instance variables:
-currentStage (Stage)
-Bag (array of Items)
-Player play1
-Player play2
-Pokemon chosen1
-Pokemon chosen2
-Methods:
-public Stage chooseStage ()
-Will ask for a stage and change it to that all within method.
-public void printBattle ()
-public void printOtherStage (Stage currentStage)
- */
 
     public enum Stage {Bag, Battle, Attacks, Pokemon};
 
-    private Stage currentStage;
-    private Item[] bag;
-    private Player play1;
-    private Player play2;
-    private Pokemon chosen1;
-    private Pokemon chosen2;
+    private static Stage currentStage;
+    private static Item[] bag;
+    private static Player play1;
+    private static Player play2;
+    private static Pokemon chosen1;
+    private static Pokemon chosen2;
 
     public Stage getCurrentStage() {
         return currentStage;
@@ -69,6 +54,9 @@ public void printOtherStage (Stage currentStage)
         this.chosen2 = chosen2;
     }
 
+    public Game(){
+
+    }
 
     public Stage chooseStage (){
         //Will ask for a stage and change it to that all within method.
@@ -114,7 +102,7 @@ public void printOtherStage (Stage currentStage)
         }
     }
 
-    public void printBattle () {
+    public static void printBattle () {
         String side = "*";
         String blankSpace = "                           ";
         String divider = "___________________________";
@@ -227,38 +215,29 @@ public void printOtherStage (Stage currentStage)
 
     }
 
-    public void printOtherStage (Stage currentStage){
+    public static void printOtherStage (Stage currentStage){
             String side = "*";
             String blankSpace = "                           ";
             String divider = "---------------------------";
 
-            String stage = "Pokemon";
             int height = 14;
             int width = 29;
             int linesPrinted = 0;
-            String[] pokeNames = {"Pidgey", "Pikachu", "Squirtle"};
-            int level = 18;
-            int number = 5;
-            String[] attackNames = {"Growl", "Tackle", "Thunder"};
             String lineStr;
             String title;
+            Attack[] thingsListA = chosen1.getAttacks();
+            Item[] thingsListB = bag;
+            ArrayList<Pokemon> thingsListP = play1.getPokemonList();
 
-        if(stage.equals("Attacks")){
+        if(currentStage.equals(Stage.Attacks)){
             title = "Attacks";
-
-            //Attack[] thingsList = chosen1.getAttacks();
         }
-        else if(stage.equals("Bag")){
+        else if(currentStage.equals(Stage.Bag)){
             title = "Bag";
-
-            Item[] thingsList = bag;
         }
         else{
             title = "Pokemon";
-
-            //Pokemon thingsList = play1.getPokemonList();
         }
-
         for(int r = 0;r<height;r++){
             if(r==0){
                 for(int i = 0;i<width-1;i++){
@@ -281,21 +260,20 @@ public void printOtherStage (Stage currentStage)
                 linesPrinted++;
             }
             else if (!(linesPrinted>height)){
-
-                if(linesPrinted-2<pokeNames.length){
+                if(linesPrinted-2<8){
                     switch(title) {
                         case "Attacks":
-                            lineStr = lineStr = pokeNames[linesPrinted - 2];
+                            lineStr = lineStr = thingsListA[linesPrinted - 2].getName();
 
                             break;
                         case "Pokemon":
-                            lineStr = lineStr = "Lvl " + level + ' ' + pokeNames[linesPrinted - 2];
+                            lineStr = lineStr = "Lvl " + thingsListP.get(linesPrinted - 2).getLevel() + ' ' + thingsListP.get(linesPrinted - 2);
                             break;
                         case "Bag":
-                            lineStr = number+"X " + pokeNames[linesPrinted - 2];
+                            lineStr =  thingsListB[linesPrinted - 2].getNumber()+"X " + thingsListB[linesPrinted - 2];
                             break;
                         default:
-                            lineStr = "None";
+                            lineStr = side+blankSpace+side;
                             break;
                     }
                     System.out.print(side);
@@ -303,9 +281,6 @@ public void printOtherStage (Stage currentStage)
                     printSpaces(lineStr);
                     System.out.println(side);
                     linesPrinted++;
-                    //System.out.print(pokeNames[i]);
-
-
                 }
                 else{
                     System.out.println(side+blankSpace+side);

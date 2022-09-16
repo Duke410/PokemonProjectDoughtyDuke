@@ -48,12 +48,16 @@ public class Player {
             }
         }
     }
+
     public Pokemon choosePokemon(){
 
     }
+
+
     public Item chooseItem(){
 
     }
+
     public void runAway(){
 
     }

@@ -29,7 +29,7 @@ public abstract class Item {
         number--;
     }
 
-    public abstract void effect (Player thisPlayer, Player otherPlayer, int healNum);
+    public abstract void effect (Player thisPlayer, Player otherPlayer, Pokemon affected, int healNum);
 
 
 }
