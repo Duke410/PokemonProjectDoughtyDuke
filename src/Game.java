@@ -228,9 +228,6 @@ public void printOtherStage (Stage currentStage)
     }
 
     public void printOtherStage (Stage currentStage){
-
-
-        if(currentStage.equals(Stage.Attacks)){
             String side = "*";
             String blankSpace = "                           ";
             String divider = "---------------------------";
@@ -239,10 +236,10 @@ public void printOtherStage (Stage currentStage)
             int height = 14;
             int width = 29;
             int linesPrinted = 0;
-            String[] pokeNames = {"Pidgey","Pikachu","Squirtle"};
+            String[] pokeNames = {"Pidgey", "Pikachu", "Squirtle"};
             int level = 18;
             int number = 5;
-            String[] attackNames = {"Growl","Tackle","Thunder"};
+            String[] attackNames = {"Growl", "Tackle", "Thunder"};
             String lineStr;
             String title;
 
