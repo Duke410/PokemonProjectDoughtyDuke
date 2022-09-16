@@ -245,7 +245,7 @@ public void printOtherStage (Stage currentStage)
             title = "Bag";
             //bag
         }
-        else(currentStage.equals(Stage.Pokemon)){
+        else{
             title = "Pokemon";
             //play1.getPokemonList()
         }
