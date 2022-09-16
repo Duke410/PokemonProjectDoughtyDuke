@@ -228,26 +228,38 @@ public void printOtherStage (Stage currentStage)
     }
 
     public void printOtherStage (Stage currentStage){
-        String side = "*";
-        String blankSpace = "                           ";
-        String divider = "___________________________";
 
-        int height = 10;
-        int width = 29;
-        String lineStr;
-        String title;
 
         if(currentStage.equals(Stage.Attacks)){
+            String side = "*";
+            String blankSpace = "                           ";
+            String divider = "---------------------------";
+
+            String stage = "Pokemon";
+            int height = 14;
+            int width = 29;
+            int linesPrinted = 0;
+            String[] pokeNames = {"Pidgey","Pikachu","Squirtle"};
+            int level = 18;
+            int number = 5;
+            String[] attackNames = {"Growl","Tackle","Thunder"};
+            String lineStr;
+            String title;
+
+        if(stage.equals("Attacks")){
             title = "Attacks";
-            //chosen1.getAttacks();
+
+            //Attack[] thingsList = chosen1.getAttacks();
         }
-        else if(currentStage.equals(Stage.Bag)){
+        else if(stage.equals("Bag")){
             title = "Bag";
-            //bag
+
+            Item[] thingsList = bag;
         }
         else{
             title = "Pokemon";
-            //play1.getPokemonList()
+
+            //Pokemon thingsList = play1.getPokemonList();
         }
 
         for(int r = 0;r<height;r++){
@@ -258,96 +270,51 @@ public void printOtherStage (Stage currentStage)
                 System.out.println('*');
             }
             if(r==0) {
-                lineStr = chosen2.getName() + " Lvl " + chosen2.getLevel();
-                System.out.print(side+lineStr);
-                printSpaces(lineStr);
-                System.out.println(side);
-            }
-            else if(r==1) {
-                lineStr = "Hp: " + chosen2.getHealth();
-                System.out.print(side+lineStr);
-                printSpaces(lineStr);
-                System.out.println(side);
-            }
-            else if(r==2){
-                lineStr = "0   ";
+                lineStr = title;
                 System.out.print(side);
-                printSpaces(lineStr);
                 System.out.print(lineStr);
+                printSpaces(lineStr);
                 System.out.println(side);
+                linesPrinted++;
+            }
+            else if(r==1){
+                System.out.print(side);
+                System.out.print(divider);
+                System.out.println(side);
+                linesPrinted++;
+            }
+            else if (!(linesPrinted>height)){
 
-            }
-            else if(r==3){
-                lineStr = "-|-  ";
-                System.out.print(side);
-                printSpaces(lineStr);
-                System.out.print(lineStr);
-                System.out.println(side);
+                if(linesPrinted-2<pokeNames.length){
+                    switch(title) {
+                        case "Attacks":
+                            lineStr = lineStr = pokeNames[linesPrinted - 2];
 
-            }
-            else if(r==4){
-                lineStr = "/ \\  ";
-                System.out.print(side);
-                printSpaces(lineStr);
-                System.out.print(lineStr);
-                System.out.println(side);
-            }
-            else if(r==6){
-                lineStr = "   0";
-                System.out.print(side+lineStr);
-                printSpaces(lineStr);
-                System.out.println(side);
+                            break;
+                        case "Pokemon":
+                            lineStr = lineStr = "Lvl " + level + ' ' + pokeNames[linesPrinted - 2];
+                            break;
+                        case "Bag":
+                            lineStr = number+"X " + pokeNames[linesPrinted - 2];
+                            break;
+                        default:
+                            lineStr = "None";
+                            break;
+                    }
+                    System.out.print(side);
+                    System.out.print(lineStr);
+                    printSpaces(lineStr);
+                    System.out.println(side);
+                    linesPrinted++;
+                    //System.out.print(pokeNames[i]);
 
-            }
-            else if(r==7){
-                lineStr = "  -|-";
-                System.out.print(side+lineStr);
-                printSpaces(lineStr);
-                System.out.println(side);
 
-            }
-            else if(r==8){
-                lineStr = "  / \\";
-                System.out.print(side+lineStr);
-                printSpaces(lineStr);
-                System.out.println(side);
-            }
-            else if(r==9) {
-                lineStr = chosen1.getName() + " Lvl " + chosen1.getLevel();
-                System.out.print(side);
-                printSpaces(lineStr);
-                System.out.print(lineStr);
-                System.out.println(side);
-            }
-            else if(r==10) {
-                lineStr = "Hp: " + chosen1.getHealth();
-                System.out.print(side);
-                printSpaces(lineStr);
-                System.out.print(lineStr);
-                System.out.println(side);
-            }
-            else if(r==11) {
-                System.out.println(side+divider+side);
-            }
-            else if(r==12) {
-                lineStr = "|Attack|Bag";
-                System.out.print(side);
-                printSpaces(lineStr);
-                System.out.print(lineStr);
-                System.out.println(side);
-            }
-            else if(r==13) {
-                lineStr = "|Pokemon|Run";
-                System.out.print(side);
-                printSpaces(lineStr);
-                System.out.print(lineStr);
-                System.out.println(side);
-            }
-            else{
-                System.out.println(side+blankSpace+side);
+                }
+                else{
+                    System.out.println(side+blankSpace+side);
+                }
             }
         }
-
         for(int i = 0;i<width-1;i++){
             System.out.print(side);
         }
