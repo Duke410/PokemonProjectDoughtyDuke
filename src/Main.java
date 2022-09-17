@@ -34,13 +34,16 @@ public class Main {
                         }
                         break;
                     case Attacks:
-                        thisGame.getChosen1().doAttack(thisGame.getChosen2());
-                        currentPlay = thisGame.getPlay2();
+                        Attack newAttack = thisGame.getChosen1().chooseAttack();
+                        thisGame.getChosen1().doAttack(thisGame.getChosen2(),newAttack);
                         for (int i = 0; i < thisGame.getPlay2().getPokemonList().size(); i++) {
                             if (thisGame.getChosen2().getName().equals(thisGame.getPlay2().getPokemonList().get(i).getName())) {
                                 thisGame.getPlay2().getPokemonList().set(i, thisGame.getChosen2());
                             }
                         }
+                        thisGame.printBattle();
+                        System.out.print(thisGame.getChosen1()+" used "+newAttack);
+                        currentPlay = thisGame.getPlay2();
                         break;
                     case Pokemon:
                         thisGame.printOtherStage();
@@ -67,6 +70,7 @@ public class Main {
                         thisGame.getPlay1().getPokemonList().set(i, thisGame.getChosen1());
                     }
                 }
+                currentPlay = thisGame.getPlay1();
             }
         }
     }
