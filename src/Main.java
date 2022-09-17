@@ -20,9 +20,11 @@ public class Main {
                 switch (thisGame.getCurrentStage()) {
                     case Bag:
                         thisGame.printOtherStage();
+                        //take the user's input for what item they would like
                         System.out.println("Choose an item: ");
                         String input = sc.nextLine();
                         Item chosen;
+                        //according to the user input, call the effect method from the correct item with the correct inputs
                         if (input.equals("Pokeball")) {
                             chosen = thisGame.getBag()[2];
                             chosen.effect(thisGame.getPlay1(), thisGame.getPlay2(), thisGame.getChosen2(), 0);
