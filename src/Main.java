@@ -2,15 +2,18 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Main {
-    public Game thisGame;
 
     public static void main(String[] args) {
+        //objects
         Scanner sc = new Scanner(System.in);
         Game thisGame = new Game();
         Player currentPlay = thisGame.getPlay1();
+
         boolean gameGoing = true;
         while(gameGoing){
             thisGame.printBattle();
+
+            //
             if(currentPlay.getPlayerName().equals(thisGame.getPlay1().getPlayerName())) {
                 thisGame.setCurrentStage(thisGame.chooseStage());
                 switch (thisGame.getCurrentStage()) {

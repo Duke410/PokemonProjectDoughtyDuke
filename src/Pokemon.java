@@ -61,12 +61,12 @@ public class Pokemon {
         }
         return new Attack("n/a",0);
     }
-    public void doAttack (Pokemon attackedPokemon){
+    public void doAttack (Pokemon attackedPokemon, Attack attackInput){
         //allows someone to choose an attack and then calculates damage and level of other pokemon to determine how much to subtract from other pokemon
         //equation:   health  = (health) - (100 * attackDamage)/(level)
         //(so that the higher the level, the less damage taken)
         //(damages range from 1-4, and levels from 10-50, so the health reduction will always be between 2-40) (health starts at 50)
-        attackedPokemon.setHealth(attackedPokemon.getHealth() - (100 * chooseAttack().getDamage() / attackedPokemon.getLevel()) );
+        attackedPokemon.setHealth(attackedPokemon.getHealth() - (100 * attackInput.getDamage() / attackedPokemon.getLevel()) );
     }
     public void randomAttack(Pokemon attackedPokemon){
         Random random = new Random();
