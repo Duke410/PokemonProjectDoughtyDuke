@@ -33,7 +33,8 @@ public class Main {
 
                     break;
                 case Pokemon:
-
+                    thisGame.printOtherStage();
+                    thisGame.setChosen1(thisGame.getPlay1().choosePokemon());
                     break;
                 case Battle:
                     thisGame.printBattle();
@@ -47,7 +48,6 @@ public class Main {
                     }
                     break;
                 default:
-
                     break;
             }
 
