@@ -35,19 +35,15 @@ public class Main {
                         }
                         break;
                     case Attacks:
-                        //choosing attack from player 1
                         Attack newAttack = thisGame.getChosen1().chooseAttack();
-                        //doing the attack on the chosen instance in player class
                         thisGame.getChosen1().doAttack(thisGame.getChosen2(),newAttack);
-                        //updating the information of the attack to the actual pokemon list
                         for (int i = 0; i < thisGame.getPlay2().getPokemonList().size(); i++) {
                             if (thisGame.getChosen2().getName().equals(thisGame.getPlay2().getPokemonList().get(i).getName())) {
                                 thisGame.getPlay2().getPokemonList().set(i, thisGame.getChosen2());
                             }
                         }
                         thisGame.printBattle();
-                        System.out.print(thisGame.getChosen1().getName()+" used "+newAttack.getName());
-                        //switching turns
+                        System.out.print(thisGame.getChosen1()+" used "+newAttack);
                         currentPlay = thisGame.getPlay2();
                         break;
                     case Pokemon:
