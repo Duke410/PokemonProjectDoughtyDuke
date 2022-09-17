@@ -18,26 +18,18 @@ public class Main {
                     System.out.println("Choose an item: ");
                     String input = sc.nextLine();
                     Item chosen;
-                    for (int i = 0; i < 3; i++) {
-                        if (input.equals(thisGame.getBag()[i].getName())) {
-                            if(input.equals("Pokeball")){
-                                chosen = new Pokeball("Pokeball",thisGame.getBag()[i].getNumber(), thisGame.getBag()[i].getIsSuper());
-                                break;
-                            } else{
-                                chosen = new Potion("Potion",thisGame.getBag()[i].getNumber(), thisGame.getBag()[i].getIsSuper());
-                                break;
-                            }
-                        } else {
-                            chosen = new Pokeball("n/a",0,false);
-                        }
+                    if(input.equals("Pokeball")){
+                        chosen = thisGame.getBag()[2];
+                        chosen.effect(thisGame.getPlay1(),thisGame.getPlay2(),thisGame.getChosen2(),0);
                     }
-                    if(chosen.getName().equals("Pokeball")){
-                         chosen.effect(thisGame.getPlay1(),thisGame.getPlay2(), thisGame.getChosen2(), 0);
-                    } else {
-                        chosen.effect(thisGame.getPlay1(), thisGame.getPlay2(), thisGame.getChosen1(), 5);
+                    else if (input.equals("Potion")){
+                        chosen = thisGame.getBag()[0];
+                        chosen.effect(thisGame.getPlay1(),thisGame.getPlay2(),thisGame.getChosen1(),5);
                     }
-
-
+                    else{
+                        chosen = thisGame.getBag()[1];
+                        chosen.effect(thisGame.getPlay1(),thisGame.getPlay2(),thisGame.getChosen1(),5);
+                    }
                     break;
                 case Attacks:
 
