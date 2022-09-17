@@ -56,7 +56,7 @@ public class Game {
         this.chosen2 = chosen2;
     }
 
-    //
+    //initialize an instance of the game class
     public Game(){
         play1 = new Player("Player 1",1);
         play2 = new Player("Player 2",2);
@@ -65,7 +65,7 @@ public class Game {
     }
 
     public Stage chooseStage (){
-        //Will ask for a stage and change it to that all within method.
+        //Will ask for a stage and change it to that all within method
         Scanner sc = new Scanner(System.in);
         Stage newStage = Stage.Bag;
         boolean goodChoice = false;
