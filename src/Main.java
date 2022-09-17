@@ -13,17 +13,22 @@ public class Main {
 
             switch(thisGame.getCurrentStage()){
                 case Bag:
-                    thisGame.printOtherStage();
 
+                    thisGame.printOtherStage();
                     System.out.println("Choose an item: ");
                     String input = sc.nextLine();
+                    Item chosen;
                     for (int i = 0; i < 3; i++) {
                         if (input.equals(thisGame.getBag()[i].getName())) {
                             if(input.equals("Pokeball")){
-                                Item chosen = new Pokeball("Pokemon",thisGame.getBag()[i].getNumber(), thisGame.getBag()[i].getIsSuper());
+                                chosen = new Pokeball("Pokeball",thisGame.getBag()[i].getNumber(), thisGame.getBag()[i].getIsSuper());
+                                break;
                             } else{
-                                Item chosen = new Potion("Potion",thisGame.getBag()[i].getNumber(), thisGame.getBag()[i].getIsSuper());
+                                chosen = new Potion("Potion",thisGame.getBag()[i].getNumber(), thisGame.getBag()[i].getIsSuper());
+                                break;
                             }
+                        } else {
+                            chosen = new Pokeball("n/a",0,false);
                         }
                     }
                     if(chosen.getName().equals("Pokeball")){

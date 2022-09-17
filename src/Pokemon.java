@@ -49,8 +49,6 @@ public class Pokemon {
     }
 
     public Attack chooseAttack (){
-        //printing attacks menu first
-        Game.printOtherStage(Game.Stage.Attacks);
         System.out.println("Select an attack: ");
         for(int i = 0; i<4; i++){
             if(sc.nextLine().equals(attacks[i].getName())){
