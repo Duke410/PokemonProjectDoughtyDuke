@@ -57,7 +57,7 @@ public class Player {
         pokemonList.add(newPokemon);
     }
     public void subtractPokemon(Pokemon lostPokemon){
-        for(int i = 0; i<= pokemonList.size(); i++){
+        for(int i = 0; i< pokemonList.size(); i++){
             if(pokemonList.get(i).getName().equals(lostPokemon.getName())){
                 pokemonList.remove(i);
             }
