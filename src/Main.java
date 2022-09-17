@@ -26,6 +26,7 @@ public class Main {
                         if (input.equals("Pokeball")) {
                             chosen = thisGame.getBag()[2];
                             chosen.effect(thisGame.getPlay1(), thisGame.getPlay2(), thisGame.getChosen2(), 0);
+                            thisGame.setChosen2(thisGame.getPlay2().getPokemonList().get(0));
                         } else if (input.equals("Potion")) {
                             chosen = thisGame.getBag()[0];
                             chosen.effect(thisGame.getPlay1(), thisGame.getPlay2(), thisGame.getChosen1(), 5);
