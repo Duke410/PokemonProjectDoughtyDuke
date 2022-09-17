@@ -57,7 +57,13 @@ public class Main {
                 }
             }
             else{
-                //heres where we do all the automated stuff
+                thisGame.getPlay2().ranChangePokemon(thisGame.getChosen2());
+                thisGame.getChosen2().randomAttack(thisGame.getChosen1());
+                for (int i = 0; i < thisGame.getPlay1().getPokemonList().size(); i++) {
+                    if (thisGame.getChosen1().getName().equals(thisGame.getPlay1().getPokemonList().get(i).getName())) {
+                        thisGame.getPlay1().getPokemonList().set(i, thisGame.getChosen1());
+                    }
+                }
             }
         }
     }
