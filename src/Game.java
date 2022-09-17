@@ -1,3 +1,5 @@
+//Written by Elliott :)
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -57,18 +59,18 @@ public class Game {
     }
 
     //initialize an instance of the game class
-    public Game(){
-        play1 = new Player("Player 1",1);
-        play2 = new Player("Player 2",2);
+    public Game() {
+        play1 = new Player("Player 1", 1);
+        play2 = new Player("Player 2", 2);
         chosen1 = play1.getPokemonList().get(0);
         chosen2 = play2.getPokemonList().get(0);
+        bag = new Item[]{new Potion("Potion", 5, false), new Potion("Super Potion", 5, true), new Pokeball("Pokeball", 5, false)};
     }
-
     public Stage chooseStage (){
-        //Will ask for a stage and change it to that all within method
         Scanner sc = new Scanner(System.in);
         Stage newStage = Stage.Bag;
         boolean goodChoice = false;
+        //Will ask for a player's chosen stage
         while(!goodChoice){
             System.out.println("Please enter the stage you would like to go to:\n" +
                     "1: Bag\n" +
@@ -76,6 +78,7 @@ public class Game {
                     "3: Attacks\n" +
                     "4: Pokemon");
             String answer = sc.nextLine();
+            // change the stage based on the user input
             if(answer.equals("1")||answer.equals("Bag")){
                 newStage = Stage.Bag;
                 goodChoice = true;
@@ -96,11 +99,13 @@ public class Game {
                 System.out.println("Apologies, that is not a valid choice. Please enter a new one.");
             }
         }
+        //set current stage to the chosen stage and return it
         currentStage = newStage;
         return newStage;
     }
 
     public static void printSpaces(String lineStr) {
+        //method that will print the number of spaces that it takes to fill up the rest of a line in the choosing stages
         int maxLength = 27;
         int spaces = maxLength-lineStr.length();
         for(int i = 0;i<spaces;i++){
@@ -109,14 +114,18 @@ public class Game {
     }
 
     public static void printBattle () {
+        //initialize dividers and spaces
         String side = "*";
         String blankSpace = "                           ";
         String divider = "___________________________";
 
+        //initialize height and width of window and lineStr
         int height = 14;
         int width = 29;
         String lineStr;
+        //for each row in the window, print what should be on that row in a battle, depending on what row its on
         for(int r = 0;r<height;r++){
+            //print the top divider
             if(r==0){
                 for(int i = 0;i<width-1;i++){
                     System.out.print(side);
@@ -214,6 +223,7 @@ public class Game {
             }
         }
 
+        //print the bottom divider
         for(int i = 0;i<width-1;i++){
             System.out.print(side);
         }
@@ -221,20 +231,23 @@ public class Game {
 
     }
 
-    public static void printOtherStage (Stage currentStage){
-            String side = "*";
-            String blankSpace = "                           ";
-            String divider = "---------------------------";
+    public static void printOtherStage (){
+        //initialize dividers and spaces
+        String side = "*";
+        String blankSpace = "                           ";
+        String divider = "---------------------------";
 
-            int height = 14;
-            int width = 29;
-            int linesPrinted = 0;
-            String lineStr;
-            String title;
-            Attack[] thingsListA = chosen1.getAttacks();
-            Item[] thingsListB = bag;
-            ArrayList<Pokemon> thingsListP = play1.getPokemonList();
+        //initialize height and width of window and lineStr
+        int height = 14;
+        int width = 29;
+        int linesPrinted = 0;
+        String lineStr;
+        String title;
+        Attack[] thingsListA = chosen1.getAttacks();
+        Item[] thingsListB = bag;
+        ArrayList<Pokemon> thingsListP = play1.getPokemonList();
 
+        //depending on the stage, choose the correct window title
         if(currentStage.equals(Stage.Attacks)){
             title = "Attacks";
         }
@@ -244,6 +257,7 @@ public class Game {
         else{
             title = "Pokemon";
         }
+        //for each row in the window, print the appropriate information
         for(int r = 0;r<height;r++){
             if(r==0){
                 for(int i = 0;i<width-1;i++){
@@ -265,12 +279,13 @@ public class Game {
                 System.out.println(side);
                 linesPrinted++;
             }
+            //if there are still lines left to print
             else if (!(linesPrinted>height)){
+                //create the print string for the next thing in the list of things its printing
                 if(linesPrinted-2<8){
                     switch(title) {
                         case "Attacks":
                             lineStr = lineStr = thingsListA[linesPrinted - 2].getName();
-
                             break;
                         case "Pokemon":
                             lineStr = lineStr = "Lvl " + thingsListP.get(linesPrinted - 2).getLevel() + ' ' + thingsListP.get(linesPrinted - 2);
@@ -279,13 +294,16 @@ public class Game {
                             lineStr =  thingsListB[linesPrinted - 2].getNumber()+"X " + thingsListB[linesPrinted - 2];
                             break;
                         default:
+                            //otherwise, its a blank space
                             lineStr = side+blankSpace+side;
                             break;
                     }
+                    //actually print the row using the created print string
                     System.out.print(side);
                     System.out.print(lineStr);
                     printSpaces(lineStr);
                     System.out.println(side);
+                    //increase the number of lines printed
                     linesPrinted++;
                 }
                 else{
@@ -293,12 +311,10 @@ public class Game {
                 }
             }
         }
+        //print the bottom divider
         for(int i = 0;i<width-1;i++){
             System.out.print(side);
         }
         System.out.println('*');
-
     }
-
-
 }
