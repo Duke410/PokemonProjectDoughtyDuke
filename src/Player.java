@@ -65,7 +65,6 @@ public class Player {
     }
 
     public Pokemon choosePokemon(){
-        thisGame.printOtherStage(Game.Stage.Pokemon);
         System.out.println("Choose a Pokemon");
         String input = sc.nextLine();
         for(int i = 0; i< pokemonList.size(); i++){
@@ -73,12 +72,10 @@ public class Player {
                 return pokemonList.get(i);
             }
         }
-
     }
 
-
     public Item chooseItem(){
-        printOtherStage(Game.Stage.Bag);
+        thisGame.printOtherStage(Game.Stage.Bag);
         System.out.println("Choose an item: ");
         String input = sc.nextLine();
         for(int i = 0; i<3; i++){
@@ -88,16 +85,12 @@ public class Player {
         }
     }
 
-    public void runAway(){
-
-    }
-    public void ranChangePokemon(){
+    public Pokemon ranChangePokemon(Pokemon oldPokemon){
         if (Math.random()<0.4){
             int chosen = random.nextInt(pokemonList.size());
-            thisGame.getChosen2.setName(pokemonList.get(chosen).getName());
-            thisGame.getChosen2.setLevel(pokemonList.get(chosen).getLevel());
-            thisGame.getChosen2.setHealth(pokemonList.get(chosen).getHealth());
-            thisGame.getChosen2.setAttacks(pokemonList.get(chosen).getAttacks());
+            return pokemonList.get(chosen);
+        } else{
+            return oldPokemon;
         }
     }
 
