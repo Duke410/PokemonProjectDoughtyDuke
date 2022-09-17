@@ -36,14 +36,14 @@ public class Main {
                         break;
                     case Attacks:
                         Attack newAttack = thisGame.getChosen1().chooseAttack();
-                        thisGame.getChosen1().doAttack(thisGame.getChosen2(),newAttack);
+                        thisGame.getChosen1().doAttack(thisGame.getChosen2(), newAttack);
                         for (int i = 0; i < thisGame.getPlay2().getPokemonList().size(); i++) {
                             if (thisGame.getChosen2().getName().equals(thisGame.getPlay2().getPokemonList().get(i).getName())) {
                                 thisGame.getPlay2().getPokemonList().set(i, thisGame.getChosen2());
                             }
                         }
                         thisGame.printBattle();
-                        System.out.print(thisGame.getChosen1()+" used "+newAttack);
+                        System.out.println(thisGame.getChosen1().getName()+" used "+newAttack.getName());
                         currentPlay = thisGame.getPlay2();
                         break;
                     case Pokemon:
@@ -65,7 +65,8 @@ public class Main {
             }
             else{
                 thisGame.getPlay2().ranChangePokemon(thisGame.getChosen2());
-                thisGame.getChosen2().randomAttack(thisGame.getChosen1());
+                String attackName = thisGame.getChosen2().randomAttack(thisGame.getChosen1());
+                System.out.println(thisGame.getChosen2().getName()+" used "+attackName);
                 for (int i = 0; i < thisGame.getPlay1().getPokemonList().size(); i++) {
                     if (thisGame.getChosen1().getName().equals(thisGame.getPlay1().getPokemonList().get(i).getName())) {
                         thisGame.getPlay1().getPokemonList().set(i, thisGame.getChosen1());
