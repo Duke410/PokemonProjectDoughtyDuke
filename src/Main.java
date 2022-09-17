@@ -15,24 +15,22 @@ public class Main {
                 case Bag:
                     thisGame.printOtherStage();
 
-                    public Item chooseItem() {
-                        thisGame.printOtherStage();
-                        System.out.println("Choose an item: ");
-                        String input = sc.nextLine();
-                        for (int i = 0; i < 3; i++) {
-                            if (input.equals(thisGame.getBag()[i].getName())) {
-                                return thisGame.getBag()[i];
+                    System.out.println("Choose an item: ");
+                    String input = sc.nextLine();
+                    for (int i = 0; i < 3; i++) {
+                        if (input.equals(thisGame.getBag()[i].getName())) {
+                            if(input.equals("Pokeball")){
+                                Item chosen = new Pokeball("Pokemon",thisGame.getBag()[i].getNumber(), thisGame.getBag()[i].getIsSuper());
+                            } else{
+                                Item chosen = new Potion("Potion",thisGame.getBag()[i].getNumber(), thisGame.getBag()[i].getIsSuper());
                             }
                         }
                     }
-
-                    Item chosen = chooseItem();
                     if(chosen.getName().equals("Pokeball")){
                          chosen.effect(thisGame.getPlay1(),thisGame.getPlay2(), thisGame.getChosen2(), 0);
                     } else {
                         chosen.effect(thisGame.getPlay1(), thisGame.getPlay2(), thisGame.getChosen1(), 5);
                     }
-
 
 
                     break;
