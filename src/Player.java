@@ -63,6 +63,7 @@ public class Player {
             }
         }
     }
+
     public Pokemon choosePokemon(){
         thisGame.printOtherStage(Game.Stage.Pokemon);
         System.out.println("Choose a Pokemon");
@@ -74,6 +75,8 @@ public class Player {
         }
 
     }
+
+
     public Item chooseItem(){
         printOtherStage(Game.Stage.Bag);
         System.out.println("Choose an item: ");
@@ -84,6 +87,7 @@ public class Player {
             }
         }
     }
+
     public void runAway(){
 
     }
