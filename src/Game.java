@@ -294,7 +294,7 @@ public class Game {
                             break;
                         case "Pokemon":
                             if(linesPrinted-2<thingsListP.size()) {
-                                lineStr = lineStr = "Lvl " + thingsListP.get(linesPrinted - 2).getLevel() + ' ' + thingsListP.get(linesPrinted - 2);
+                                lineStr = lineStr = "Lvl " + thingsListP.get(linesPrinted - 2).getLevel() + ' ' + thingsListP.get(linesPrinted - 2).getName();
                             }
                             else{
                                 lineStr = blankSpace;
