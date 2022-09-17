@@ -14,12 +14,26 @@ public class Main {
             switch(thisGame.getCurrentStage()){
                 case Bag:
                     thisGame.printOtherStage();
-                    Item chosen = thisGame.getPlay1().chooseItem();
+
+                    public Item chooseItem() {
+                        thisGame.printOtherStage();
+                        System.out.println("Choose an item: ");
+                        String input = sc.nextLine();
+                        for (int i = 0; i < 3; i++) {
+                            if (input.equals(thisGame.getBag()[i].getName())) {
+                                return thisGame.getBag()[i];
+                            }
+                        }
+                    }
+
+                    Item chosen = chooseItem();
                     if(chosen.getName().equals("Pokeball")){
                          chosen.effect(thisGame.getPlay1(),thisGame.getPlay2(), thisGame.getChosen2(), 0);
                     } else {
                         chosen.effect(thisGame.getPlay1(), thisGame.getPlay2(), thisGame.getChosen1(), 5);
                     }
+
+
 
                     break;
                 case Attacks:
