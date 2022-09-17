@@ -13,8 +13,9 @@ public class Main {
         while(gameGoing){
             thisGame.printBattle();
 
-            //
+            //if its player 1's turn
             if(currentPlay.getPlayerName().equals(thisGame.getPlay1().getPlayerName())) {
+                //allowing them to choose stage of game
                 thisGame.setCurrentStage(thisGame.chooseStage());
                 switch (thisGame.getCurrentStage()) {
                     case Bag:

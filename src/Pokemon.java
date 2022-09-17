@@ -68,10 +68,12 @@ public class Pokemon {
         //(damages range from 1-4, and levels from 10-50, so the health reduction will always be between 2-40) (health starts at 50)
         attackedPokemon.setHealth(attackedPokemon.getHealth() - (100 * attackInput.getDamage() / attackedPokemon.getLevel()) );
     }
-    public void randomAttack(Pokemon attackedPokemon){
+    public String randomAttack(Pokemon attackedPokemon){
         Random random = new Random();
         //same formula as above, but instead of choosing attack it is a random attack
-        attackedPokemon.setHealth(attackedPokemon.getHealth() - (100 * attacks[random.nextInt(4)].getDamage() / attackedPokemon.getLevel()) );
+        int ranInt = random.nextInt(4);
+        attackedPokemon.setHealth(attackedPokemon.getHealth() - (100 * attacks[ranInt].getDamage() / attackedPokemon.getLevel()) );
+        return attacks[ranInt].getName();
     }
 
 }
