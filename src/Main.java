@@ -30,7 +30,8 @@ public class Main {
                     }
                     break;
                 case Attacks:
-
+                    thisGame.printOtherStage();
+                    thisGame.getChosen1().doAttack(thisGame.getChosen2());
                     break;
                 case Pokemon:
                     thisGame.printOtherStage();
