@@ -32,6 +32,7 @@ public class Main {
                         break;
                     case Attacks:
                         thisGame.getChosen1().doAttack(thisGame.getChosen2());
+                        currentPlay = thisGame.getPlay2();
                         break;
                     case Pokemon:
                         thisGame.printOtherStage();
@@ -44,7 +45,6 @@ public class Main {
                         break;
                     case Battle:
                         thisGame.printBattle();
-
                         break;
                     default:
                         break;
@@ -57,7 +57,7 @@ public class Main {
                 }
             }
             else{
-
+                //heres where we do all the automated stuff
             }
         }
     }
