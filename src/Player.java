@@ -74,17 +74,6 @@ public class Player {
         }
     }
 
-    public Item chooseItem(){
-        thisGame.printOtherStage(Game.Stage.Bag);
-        System.out.println("Choose an item: ");
-        String input = sc.nextLine();
-        for(int i = 0; i<3; i++){
-            if(input.equals(thisGame.getBag[i].getName())){
-                return thisGame.getBag[i];
-            }
-        }
-    }
-
     public Pokemon ranChangePokemon(Pokemon oldPokemon){
         if (Math.random()<0.4){
             int chosen = random.nextInt(pokemonList.size());
