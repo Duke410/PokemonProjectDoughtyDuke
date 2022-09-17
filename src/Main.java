@@ -9,6 +9,7 @@ public class Main {
         Game thisGame = new Game();
         boolean gameGoing = true;
         while(gameGoing){
+            thisGame.printBattle();
             thisGame.setCurrentStage(thisGame.chooseStage());
             switch(thisGame.getCurrentStage()){
                 case Bag:
@@ -30,12 +31,12 @@ public class Main {
                     }
                     break;
                 case Attacks:
-                    thisGame.printOtherStage();
                     thisGame.getChosen1().doAttack(thisGame.getChosen2());
                     break;
                 case Pokemon:
                     thisGame.printOtherStage();
                     thisGame.setChosen1(thisGame.getPlay1().choosePokemon());
+
                     break;
                 case Battle:
                     thisGame.printBattle();
