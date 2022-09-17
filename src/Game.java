@@ -285,13 +285,28 @@ public class Game {
                 if(linesPrinted-2<8){
                     switch(title) {
                         case "Attacks":
-                            lineStr = lineStr = thingsListA[linesPrinted - 2].getName();
+                            if(linesPrinted-2<thingsListA.length) {
+                                lineStr = lineStr = thingsListA[linesPrinted - 2].getName();
+                            }
+                            else{
+                                lineStr = blankSpace;
+                            }
                             break;
                         case "Pokemon":
-                            lineStr = lineStr = "Lvl " + thingsListP.get(linesPrinted - 2).getLevel() + ' ' + thingsListP.get(linesPrinted - 2);
+                            if(linesPrinted-2<thingsListP.size()) {
+                                lineStr = lineStr = "Lvl " + thingsListP.get(linesPrinted - 2).getLevel() + ' ' + thingsListP.get(linesPrinted - 2);
+                            }
+                            else{
+                                lineStr = blankSpace;
+                            }
                             break;
                         case "Bag":
-                            lineStr =  thingsListB[linesPrinted - 2].getNumber()+"X " + thingsListB[linesPrinted - 2];
+                            if(linesPrinted-2<thingsListB.length) {
+                                lineStr = thingsListB[linesPrinted - 2].getNumber() + "X " + thingsListB[linesPrinted - 2].getName();
+                            }
+                            else{
+                                lineStr = blankSpace;
+                            }
                             break;
                         default:
                             //otherwise, its a blank space
