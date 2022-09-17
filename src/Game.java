@@ -60,6 +60,8 @@ public class Game {
     public Game(){
         play1 = new Player("Player 1",1);
         play2 = new Player("Player 2",2);
+        chosen1 = play1.getPokemonList().get(0);
+        chosen2 = play2.getPokemonList().get(0);
     }
 
     public Stage chooseStage (){
