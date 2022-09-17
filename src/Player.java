@@ -67,19 +67,22 @@ public class Player {
     public Pokemon choosePokemon(){
         System.out.println("Choose a Pokemon");
         String input = sc.nextLine();
+        //returning pokemon with inputted name
         for(int i = 0; i< pokemonList.size(); i++){
             if(input.equals(pokemonList.get(i).getName())){
                 return pokemonList.get(i);
             }
         }
-        return pokemonList.get(0);
+        return pokemonList.get(0); //shouldn't happen
     }
 
     public Pokemon ranChangePokemon(Pokemon oldPokemon){
+        //forty percent chance of changing pokemon
         if (Math.random()<0.4){
             int chosen = random.nextInt(pokemonList.size());
             return pokemonList.get(chosen);
         } else{
+            //otherwise just staying the same
             return oldPokemon;
         }
     }
