@@ -1,10 +1,5 @@
 public class Potion extends Item{
-    /*
-    Potion Class
-    public void effect(Player thisPlayer, Play otherPlayer, int healNum)
-    Will heal the current selected pokemon of current player based off if the “super” boolean is toggled
-
-     */
+    //implementation of the effect method that will heal a pokemon a certain amount, for a super potion or a regular one
     public void effect (Player thisPlayer, Player otherPlayer, Pokemon affected, int healNum){
         if(super.getIsSuper()){
             healNum = healNum*2;

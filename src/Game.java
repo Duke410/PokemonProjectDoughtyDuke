@@ -2,9 +2,10 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Game {
-
+    //enum to keep track of the stage of the game
     public enum Stage {Bag, Battle, Attacks, Pokemon};
 
+    //instance variables for the game
     private static Stage currentStage;
     private static Item[] bag;
     private static Player play1;
@@ -12,6 +13,7 @@ public class Game {
     private static Pokemon chosen1;
     private static Pokemon chosen2;
 
+    //accessors and mutators for the variables
     public Stage getCurrentStage() {
         return currentStage;
     }
@@ -54,8 +56,10 @@ public class Game {
         this.chosen2 = chosen2;
     }
 
+    //
     public Game(){
-
+        play1 = new Player("Player 1",1);
+        play2 = new Player("Player 2",2);
     }
 
     public Stage chooseStage (){

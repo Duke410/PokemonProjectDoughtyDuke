@@ -1,9 +1,11 @@
 public abstract class Item {
 
+    //initialize variables
     private String name;
     private int number;
     private boolean isSuper;
 
+    //accessors and mutators
     public int getNumber() {
         return number;
     }
@@ -25,10 +27,12 @@ public abstract class Item {
         isSuper = aSuper;
     }
 
+    //method to decrease the amount of an item
     public void decrItemNum (){
         number--;
     }
 
+    //abstract effect method
     public abstract void effect (Player thisPlayer, Player otherPlayer, Pokemon affected, int healNum);
 
 

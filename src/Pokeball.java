@@ -1,10 +1,5 @@
 public class Pokeball extends Item{
-    /*
-    Pokeball Class
-    public void effect(Player thisPlayer, Play otherPlayer, healNum)
-    Find the pokemon that the other player currently has on the field, call subtractPokemon for the other player, and call addPokemon with the captured pokemon
-
-     */
+    //implementation of the effect method that will take the captured pokemon from one player and add it to the other player
     public void effect (Player thisPlayer, Player otherPlayer, Pokemon affected, int healNum){
         otherPlayer.subtractPokemon(affected);
         thisPlayer.addPokemon(affected);
