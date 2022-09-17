@@ -33,15 +33,15 @@ public class Main {
                     case Attacks:
                         thisGame.getChosen1().doAttack(thisGame.getChosen2());
                         currentPlay = thisGame.getPlay2();
+                        for (int i = 0; i < thisGame.getPlay2().getPokemonList().size(); i++) {
+                            if (thisGame.getChosen2().getName().equals(thisGame.getPlay2().getPokemonList().get(i).getName())) {
+                                thisGame.getPlay2().getPokemonList().set(i, thisGame.getChosen2());
+                            }
+                        }
                         break;
                     case Pokemon:
                         thisGame.printOtherStage();
                         thisGame.setChosen1(thisGame.getPlay1().choosePokemon());
-                        for (int i = 0; i < thisGame.getPlay2().getPokemonList().size(); i++) {
-                            if (thisGame.getChosen2().getName().equals(thisGame.getPlay2().getPokemonList().get(1).getName())) {
-                                thisGame.getPlay2().getPokemonList().set(i, thisGame.getChosen2());
-                            }
-                        }
                         break;
                     case Battle:
                         thisGame.printBattle();
