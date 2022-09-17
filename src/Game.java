@@ -59,13 +59,13 @@ public class Game {
     }
 
     //initialize an instance of the game class
-    public Game(){
-        play1 = new Player("Player 1",1);
-        play2 = new Player("Player 2",2);
+    public Game() {
+        play1 = new Player("Player 1", 1);
+        play2 = new Player("Player 2", 2);
         chosen1 = play1.getPokemonList().get(0);
         chosen2 = play2.getPokemonList().get(0);
+        bag = new Item[]{new Potion("Potion", 5, false), new Potion("Super Potion", 5, true), new Pokeball("Pokeball", 5, false)};
     }
-
     public Stage chooseStage (){
         Scanner sc = new Scanner(System.in);
         Stage newStage = Stage.Bag;

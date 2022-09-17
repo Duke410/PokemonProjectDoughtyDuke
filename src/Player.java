@@ -72,6 +72,7 @@ public class Player {
                 return pokemonList.get(i);
             }
         }
+        return pokemonList.get(0);
     }
 
     public Pokemon ranChangePokemon(Pokemon oldPokemon){

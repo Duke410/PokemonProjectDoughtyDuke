@@ -32,6 +32,12 @@ public abstract class Item {
         number--;
     }
 
+    public Item(String newName,int newNumber, boolean newSuper){
+        name = newName;
+        number = newNumber;
+        isSuper = newSuper;
+    }
+
     //abstract effect method
     public abstract void effect (Player thisPlayer, Player otherPlayer, Pokemon affected, int healNum);
 
