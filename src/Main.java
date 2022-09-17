@@ -11,8 +11,10 @@ public class Main {
         while(gameGoing){
             thisGame.printBattle();
             thisGame.setCurrentStage(thisGame.chooseStage());
+
             switch(thisGame.getCurrentStage()){
                 case Bag:
+
                     thisGame.printOtherStage();
                     System.out.println("Choose an item: ");
                     String input = sc.nextLine();
@@ -39,15 +41,7 @@ public class Main {
 
                     break;
                 case Battle:
-                    thisGame.printBattle();
-                    System.out.println("Would you like to run? (y/n)");
-                    String answer = sc.nextLine();
-                    if(answer.equals("y")){
-                        gameGoing = false;
-                    }
-                    else{
-                        thisGame.chooseStage();
-                    }
+
                     break;
                 default:
                     break;
