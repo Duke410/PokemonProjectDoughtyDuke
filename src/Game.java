@@ -1,5 +1,3 @@
-//Written by Elliott :)
-
 import java.util.Scanner;
 import java.util.ArrayList;
 
