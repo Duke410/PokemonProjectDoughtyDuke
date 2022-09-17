@@ -35,15 +35,19 @@ public class Main {
                         }
                         break;
                     case Attacks:
+                        //allowing player1 to choose attack
                         Attack newAttack = thisGame.getChosen1().chooseAttack();
+                        //doing the attack on the chosen2 instance in the player class
                         thisGame.getChosen1().doAttack(thisGame.getChosen2(),newAttack);
+                        //updating the actual pokemon list pokemon's health
                         for (int i = 0; i < thisGame.getPlay2().getPokemonList().size(); i++) {
                             if (thisGame.getChosen2().getName().equals(thisGame.getPlay2().getPokemonList().get(i).getName())) {
                                 thisGame.getPlay2().getPokemonList().set(i, thisGame.getChosen2());
                             }
                         }
                         thisGame.printBattle();
-                        System.out.print(thisGame.getChosen1()+" used "+newAttack);
+                        System.out.print(thisGame.getChosen1().getName()+" used "+newAttack.getName());
+                        //switching turns to player 2
                         currentPlay = thisGame.getPlay2();
                         break;
                     case Pokemon:
@@ -64,13 +68,17 @@ public class Main {
                 }
             }
             else{
+                //randomly potentially changing the pokemon for player 2 (40% chance)
                 thisGame.getPlay2().ranChangePokemon(thisGame.getChosen2());
+                //using a random attack from the selected pokemon on player 1 chosen pokemon
                 thisGame.getChosen2().randomAttack(thisGame.getChosen1());
+                //updating the actual info in the pokemon list pokemon
                 for (int i = 0; i < thisGame.getPlay1().getPokemonList().size(); i++) {
                     if (thisGame.getChosen1().getName().equals(thisGame.getPlay1().getPokemonList().get(i).getName())) {
                         thisGame.getPlay1().getPokemonList().set(i, thisGame.getChosen1());
                     }
                 }
+                //switching turns
                 currentPlay = thisGame.getPlay1();
             }
         }
