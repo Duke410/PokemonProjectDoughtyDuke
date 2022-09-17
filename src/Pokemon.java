@@ -50,7 +50,7 @@ public class Pokemon {
 
     public Attack chooseAttack (){
         //printing attacks menu first
-        printOtherStage(attacks);
+        Game.printOtherStage(Game.Stage.Attacks);
         System.out.println("Select an attack: ");
         for(int i = 0; i<4; i++){
             if(sc.nextLine().equals(attacks[i].getName())){
@@ -66,13 +66,13 @@ public class Pokemon {
         //(so that the higher the level, the less damage taken)
         //(damages range from 1-4, and levels from 10-50, so the health reduction will always be between 2-40) (health starts at 50)
         attackedPokemon.setHealth(attackedPokemon.getHealth() - (100 * chooseAttack().getDamage() / attackedPokemon.getLevel()) );
-        printBattle();
+        thisGame.printBattle();
     }
     public void randomAttack(Pokemon attackedPokemon){
         Random random = new Random();
         //same formula as above, but instead of choosing attack it is a random attack
         attackedPokemon.setHealth(attackedPokemon.getHealth() - (100 * attacks[random.nextInt(4)].getDamage() / attackedPokemon.getLevel()) );
-        printBattle();
+        thisGame.printBattle();
     }
 
 
