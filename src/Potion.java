@@ -14,5 +14,6 @@ public class Potion extends Item{
             otherPlayer.subtractPokemon(affected);
             thisPlayer.addPokemon(affected);
         }
+        super.setNumber(super.getNumber()-1);
     }
 }

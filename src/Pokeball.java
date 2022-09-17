@@ -15,5 +15,6 @@ public class Pokeball extends Item{
             otherPlayer.subtractPokemon(affected);
             thisPlayer.addPokemon(affected);
         }
+        super.setNumber(super.getNumber()-1);
     }
 }
